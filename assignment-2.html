@@ -1,0 +1,57 @@
+<!doctype html>
+
+<html>
+  
+  <head>
+    <title>Tea Time</title>
+	<meta charset="UTF-8">
+  </head>
+  
+  <body>
+    This space intentionally left uncaffeinated. 
+  
+    <script>
+  var teaTime = confirm("Would you like a cup of tea?");
+  console.log(teaTime);
+  if (!teaTime) {
+	console.log("I don't believe you. Try again until I do.");
+	} else {
+	
+	  var scale = prompt("One a scale of 1 to 6, with 1 being totally fine and 6 being asleep, how tired are you?");
+	  scale = Number(scale);
+	  
+	  if (scale == 1) {
+	    console.log("Herbal tea. May I suggest mint or chamomile?");
+	  } if (scale == 2) {
+	    console.log("White tea. Trader Joe's makes a nice pomegranate one.");
+	  } if (scale == 3) {
+	    var flowers = confirm("Green tea. Do you like flowers?");
+		if (flowers) {
+		console.log("Jasmine tea might be nice, then.");}
+		if (!flowers) {
+		  var fish = confirm("Well, then, do you like sushi?");
+		    if (fish) {
+		    console.log("You might like genmaicha. It's green tea with toasted bits of rice.");}
+		    if (!fish) {
+		    console.log("You need to broaden your tastes. In the meantime, have some plain old boring green tea.");
+		    }
+		  }
+		} if (scale == 4) {
+		console.log("Remedy Teas on 15th has a nice peach oolong tea that would probably do the trick.");
+		} if (scale == 5) {
+		var addOns = prompt("Do you have lemon or do you have milk?");
+		addOns = addOns.toLowerCase();
+		switch (addOns) {
+		  case "lemon":
+			console.log("Lemon is lovely with Earl Gray tea. If you like lavender, you might also try it in Lady Gray tea.");
+			break;
+		  case "milk":
+			console.log("Breakfast tea is a classic choice, and always better with a dibble of milk or cream. I like Irish Breakfast myself- it's a little maltier than English Breakfast.")}
+		} if (scale == 6) {
+		console.log("Go to bed. Nothing can help you now.") }
+	  }
+  
+    </script>
+  </body>
+  
+</html>
