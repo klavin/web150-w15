@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf8">
+
+</head>
+<body>
+
+  <script src="http://thomaswilburn.net/scc/data/quakes.js"></script>
+  <script>
+  
+  //Defining my variables
+  var size = 0;
+  var index = 0;
+  var biggest = -Infinity;
+  var totalDepth = 0;
+  var counter = 0;
+  
+  //Figuring out the largest magnitude
+  for (var i = 0; i < magnitude.length; i++) {
+	var item = magnitude[i];
+	if (item > biggest) {
+		biggest = item;
+		}
+  }
+  
+  
+  //Figuring out the average depth
+  for (var i = 0; i < depth.length; i++) {
+	totalDepth = totalDepth + depth[i];
+  }
+  
+  
+  //Figuring out how many were type other than earthquake
+  for (var i = 0; i < type.length; i++) {
+	if (type[i] !== 'earthquake') {
+	counter = counter + 1;
+	}
+  }
+  
+  
+  //My answers!
+  console.log("The biggest earthquake was magnitude " +biggest);
+  console.log("The average depth of the earthquakes " + totalDepth / depth.length);
+  console.log("The number of earthquakes that weren't really earthquakes is " +counter);
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    </script>
+</body>
+</html>
