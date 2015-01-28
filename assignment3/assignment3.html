@@ -10,9 +10,7 @@
   <script>
   
   //Defining my variables
-  var size = 0;
-  var index = 0;
-  var biggest = -Infinity;
+  var biggest = 0;
   var totalDepth = 0;
   var counter = 0;
   
@@ -34,7 +32,7 @@
   //Figuring out how many were type other than earthquake
   for (var i = 0; i < type.length; i++) {
 	if (type[i] !== 'earthquake') {
-	counter = counter + 1;
+	counter++;
 	}
   }
   
