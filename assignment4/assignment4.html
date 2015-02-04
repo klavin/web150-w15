@@ -10,34 +10,42 @@
   
   //Defining my variables
   var smallest = companies[0];
-  var income = profit[0];
+  var income = [];
+  var manufacturing = [];
+  var average = 0;
   
   //Figuring out the smallest company
   for (var i = 0; i < companies.length; i++) {
     var item = companies[i];
-	if (smallest.current < item.current) {
+	if (item.employees < smallest.employees) {
 	  smallest = item;
 	}
   }
   
   //Figuring out who had a negative profit
   for (var i = 0; i < companies.length; i++) {
-    
+    var item = companies[i];
+	if (item.profitDelta < 0) {
+		income.push(item.company)
+  }
+  }
+ 
+  //Average marketing cap for companies in manufacturing
+  for (var i = 0; i < companies.length; i++) {
+    if (companies[i].sector == "manufacturing") {
+	  manufacturing.push(item.marketCap);
+	}
+  }
   
+  for (var i = 0; i < manufacturing.length; i++) {
+    var item = manufacturing[i];
+	average = average + item;
   }
   
   //Answers
-  console.log("The smallest company was ", smallest.company)
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+  console.log("The smallest company was:", smallest.company);
+  console.log("The companies that lost money were:", income);
+  console.log("The average marketing cap for manufacturing companies is:", average);
   
   
       </script> 
