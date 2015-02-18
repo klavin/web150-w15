@@ -1,0 +1,131 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf8">
+    <title>Assignment 6</title>
+    <style>
+      button {
+        margin: 5px;
+        background-color: peachpuff;
+        border-radius: 5px;
+        height: 35px;
+      }
+
+      h1 {
+        font-family: sans-serif;
+        color: darkcyan;
+        text-align: center;
+      }
+
+      h3 {
+        font-family: sans-serif;
+        color: darkslategray;
+      }
+
+      table, th, td {
+        border: 1px solid Peru;
+        border-collapse: collapse;
+      }
+
+      th, td {
+        padding: 7px 10px;
+      }
+
+
+
+    </style>
+  </head>
+  <body>
+    <h1>Dogs Available for Adoption</h1>
+    <h3>Filter Results</h3>
+
+    <nav>
+      <button class="reset">Show All</button>
+      <br>
+      <button class="filter" data-filter="small">Small Dogs</button>
+      <button class="filter" data-filter="medium">Medium Dogs</button>
+      <button class="filter" data-filter="large">Large Dogs</button>
+      <br>
+      <button class="filter" data-filter="female">Females</button>
+      <button class="filter" data-filter="male">Males</button>
+    </nav>
+  <br>
+    <main>
+      <table>
+        <tr>
+          <th>Name</th>
+          <th>Breed</th>
+          <th>Sex</th>
+          <th>Size</th>
+          <th>Color</th>
+        </tr>
+        <tr class="small male">
+          <td>Billy Goat</td>
+          <td>Heeler</td>
+          <td>Male</td>
+          <td>Small</td>
+          <td>Red</td>
+        </tr>
+        <tr class="large female">
+          <td>Tess</td>
+          <td>Greyhound/Rhodesian Ridgeback</td>
+          <td>Female</td>
+          <td>Large</td>
+          <td>Dun</td>
+        </tr>
+        <tr class="medium male">
+          <td>Zamboni</td>
+          <td>Shepard Mix</td>
+          <td>Male</td>
+          <td>Medium</td>
+          <td>Black and tan</td>
+        </tr>
+        <tr class="small male">
+          <td>Milo</td>
+          <td>Jack Russel Terrier</td>
+          <td>Male</td>
+          <td>Small</td>
+          <td>White</td>
+        </tr>
+        <tr class="medium female">
+          <td>Kiwi</td>
+          <td>Portuguese Water Dog</td>
+          <td>Female</td>
+          <td>Medium</td>
+          <td>Black</td>
+        </tr>
+        <tr class="large male">
+          <td>Kale</td>
+          <td>Great Dane</td>
+          <td>Male</td>
+          <td>Large</td>
+          <td>White with dark spots</td>
+        </tr>
+      </table>
+    </main>
+
+    <script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
+    <script>
+
+var tr = $("tr");
+var filterRow = $(".filter");
+filterRow.on("click", function() {
+    var $this = $(this);
+    var filter = $this.attr("data-filter");
+    tr.hide();
+    var selector = "." + filter;
+    tr.filter(selector).show();
+});
+
+var allButton = $(".reset");
+allButton.on("click", function() {
+  tr.show();
+});
+
+
+
+
+
+    </script>
+  </body>
+</html>
