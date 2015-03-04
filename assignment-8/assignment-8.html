@@ -1,0 +1,93 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Assignment 8</title>
+</head>
+
+<body>
+
+    	
+        <label>Please only type vowels in this box:</label>
+        <br>
+        <input type="text" class="vowels" />
+        <span class="error"></span>
+        
+        <br><br>
+        
+        <label>Please only type words ending in "-ing" in this box:</label>
+        <br>
+        <input class="ing" />
+         <span class="ingerror"></span>
+        
+        <br><br>
+		
+        <labeL>Please only type numbers and commas, a single decimal place, and/or a negative sign in this box:</labeL>
+        <br>
+        <input class="numbers"/>
+        <span class="suberror"></span>
+                
+        <br><br>
+        
+        <input type="submit">
+
+
+<script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
+<script>
+
+var vowels = $(".vowels");
+var ing = $(".ing");
+var numbers = $(".numbers");
+
+
+//Vowels
+vowels.on("change", function() {
+	var regex = /^[aeiou]+$/;
+	var $this= $(this);
+	var value = $this.val();
+	var valid = regex.test(value);
+	var span = $("span.error");
+	if (!valid) {
+		span.html("I'm sorry, Dave. I'm afraid I can't do that.");
+	} else {
+		span.html("");
+	}
+});
+
+//-ing
+ing.on("change", function() {
+  var regex = /[ing]+$/;
+  var $this = $(this);
+  var value = $this.val();
+  var valid = regex.test(value);
+  var span = $("span.ingerror");
+  if (!valid) {
+    $this.css("outline", "3px solid orange");
+	span.html("What are you doing, Dave?");
+  } else {
+    $this.css("outline", "1px solid green");
+	span.html("");
+
+  }
+});
+
+//Numbers, etc
+numbers.on("change", function() {
+  var regex = /^\d+(\.\d+)(,-)?$/;
+  var $this = $(this);
+  var value = $this.val();
+  var valid = regex.test(value);
+  var span = $("span.suberror");
+  if(!valid) {
+    $(".submit").attr("disabled");
+	span.html("I've had to disable the submit button, Dave.")
+  }else {
+    $(".submit").attr("disabled");
+  	span.html("");
+  }
+});
+
+</script>
+
+</body>
+</html>
