@@ -1,0 +1,51 @@
+
+<!doctype html>
+<html>
+  <head>
+    <title>Never-ending Social(ism)</title>
+  </head>
+
+  <body>
+    <div class="output">
+    
+    </div>
+    
+    <button class="load">Click to Load More!</button>
+
+    <script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
+
+    <script>
+    var url = "http://thomaswilburn.net:8080/social";
+	
+    var button = $(".load");
+	var output = $(".output");
+	
+	var lastUpdate = 1;
+	
+    var loadMore = function() {
+      var request = $.ajax({
+        url: url,
+        data: {
+          since: lastUpdate
+        }
+      });
+      request.done(function(data) {
+        lastUpdate = data.at;
+        for (var i = 0; i < data.updates.length; i ++) {
+          var line = data.updates[i];
+          var text = line.status;
+          output.append(text);
+        }
+      });
+    };
+	
+	
+    $(window).load(function() { 
+      loadMore();
+    });
+    button.on("click", function() { 
+      loadMore();
+    });
+    </script>
+  </body>
+</html>
